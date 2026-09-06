@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "charts": [
+    {
+      "id": "country-sales",
+      "title": "Sales by country"
+    },
+    {
+      "id": "country-rainfall",
+      "title": "Annual rainfall by country"
+    }
+  ]
+}

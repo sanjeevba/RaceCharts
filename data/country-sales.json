@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "id": "country-sales",
+  "title": "Sales by country",
+  "description": "Fictional demonstration data, not actual country statistics.",
+  "unit": "thousands of units",
+  "isSample": true,
+  "updatedAt": "2026-09-05T00:00:00Z",
+  "sources": [],
+  "entities": [
+    {
+      "id": "ca",
+      "name": "Canada",
+      "flagCode": "ca",
+      "color": "#1565c0"
+    },
+    {
+      "id": "us",
+      "name": "United States",
+      "flagCode": "us",
+      "color": "#00897b"
+    },
+    {
+      "id": "de",
+      "name": "Germany",
+      "flagCode": "de",
+      "color": "#7e57c2"
+    },
+    {
+      "id": "jp",
+      "name": "Japan",
+      "flagCode": "jp",
+      "color": "#e07b13"
+    },
+    {
+      "id": "in",
+      "name": "India",
+      "flagCode": "in",
+      "color": "#d14970"
+    },
+    {
+      "id": "br",
+      "name": "Brazil",
+      "flagCode": "br",
+      "color": "#0086a8"
+    }
+  ],
+  "frames": [
+    {
+      "period": "2019",
+      "values": {
+        "ca": 120,
+        "us": 95,
+        "de": 150,
+        "jp": 80,
+        "in": 110,
+        "br": 65
+      }
+    },
+    {
+      "period": "2020",
+      "values": {
+        "ca": 145,
+        "us": 160,
+        "de": 155,
+        "jp": 105,
+        "in": 130,
+        "br": 100
+      }
+    },
+    {
+      "period": "2021",
+      "values": {
+        "ca": 190,
+        "us": 175,
+        "de": 180,
+        "jp": 155,
+        "in": 145,
+        "br": 205
+      }
+    },
+    {
+      "period": "2022",
+      "values": {
+        "ca": 220,
+        "us": 210,
+        "de": 260,
+        "jp": 195,
+        "in": 180,
+        "br": 235
+      }
+    },
+    {
+      "period": "2023",
+      "values": {
+        "ca": 280,
+        "us": 300,
+        "de": 275,
+        "jp": 240,
+        "in": 225,
+        "br": 265
+      }
+    },
+    {
+      "period": "2024",
+      "values": {
+        "ca": 320,
+        "us": 335,
+        "de": 310,
+        "jp": 365,
+        "in": 290,
+        "br": 345
+      }
+    },
+    {
+      "period": "2025",
+      "values": {
+        "ca": 410,
+        "us": 380,
+        "de": 360,
+        "jp": 395,
+        "in": 425,
+        "br": 400
+      }
+    },
+    {
+      "period": "2026",
+      "values": {
+        "ca": 460,
+        "us": 440,
+        "de": 420,
+        "jp": 475,
+        "in": 455,
+        "br": 510
+      }
+    }
+  ]
+}

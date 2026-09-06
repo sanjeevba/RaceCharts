@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "id": "country-rainfall",
+  "title": "Annual rainfall by country",
+  "description": "Fictional demonstration data, not actual country statistics.",
+  "unit": "mm",
+  "isSample": true,
+  "updatedAt": "2026-09-05T00:00:00Z",
+  "sources": [],
+  "entities": [
+    {
+      "id": "ca",
+      "name": "Canada",
+      "flagCode": "ca",
+      "color": "#1565c0"
+    },
+    {
+      "id": "us",
+      "name": "United States",
+      "flagCode": "us",
+      "color": "#00897b"
+    },
+    {
+      "id": "de",
+      "name": "Germany",
+      "flagCode": "de",
+      "color": "#7e57c2"
+    },
+    {
+      "id": "jp",
+      "name": "Japan",
+      "flagCode": "jp",
+      "color": "#e07b13"
+    },
+    {
+      "id": "in",
+      "name": "India",
+      "flagCode": "in",
+      "color": "#d14970"
+    },
+    {
+      "id": "br",
+      "name": "Brazil",
+      "flagCode": "br",
+      "color": "#0086a8"
+    }
+  ],
+  "frames": [
+    {
+      "period": "2019",
+      "values": {
+        "ca": 530,
+        "us": 791,
+        "de": 762,
+        "jp": 1743,
+        "in": 1204,
+        "br": 1915
+      }
+    },
+    {
+      "period": "2020",
+      "values": {
+        "ca": 603,
+        "us": 864,
+        "de": 835,
+        "jp": 1816,
+        "in": 1277,
+        "br": 1988
+      }
+    },
+    {
+      "period": "2021",
+      "values": {
+        "ca": 676,
+        "us": 937,
+        "de": 908,
+        "jp": 1889,
+        "in": 1100,
+        "br": 1811
+      }
+    },
+    {
+      "period": "2022",
+      "values": {
+        "ca": 749,
+        "us": 760,
+        "de": 731,
+        "jp": 1712,
+        "in": 1173,
+        "br": 1884
+      }
+    },
+    {
+      "period": "2023",
+      "values": {
+        "ca": 572,
+        "us": 833,
+        "de": 804,
+        "jp": 1785,
+        "in": 1246,
+        "br": 1957
+      }
+    },
+    {
+      "period": "2024",
+      "values": {
+        "ca": 645,
+        "us": 906,
+        "de": 877,
+        "jp": 1858,
+        "in": 1319,
+        "br": 1780
+      }
+    },
+    {
+      "period": "2025",
+      "values": {
+        "ca": 718,
+        "us": 979,
+        "de": 700,
+        "jp": 1681,
+        "in": 1142,
+        "br": 1853
+      }
+    },
+    {
+      "period": "2026",
+      "values": {
+        "ca": 541,
+        "us": 802,
+        "de": 773,
+        "jp": 1754,
+        "in": 1215,
+        "br": 1926
+      }
+    }
+  ]
+}
