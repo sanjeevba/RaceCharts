@@ -4,11 +4,14 @@ import { validateCatalog, validateDataset, type RaceDataset } from './data/raceD
 import BarRaceChart from './components/BarRaceChart.vue'
 
 const datasets = ref<RaceDataset[]>([])
-const selectedChartId = ref('')
+const selectedChartIds = ref<string[]>([])
 const visibleDatasets = computed(() =>
-  selectedChartId.value === 'all'
-    ? datasets.value
-    : datasets.value.filter((dataset) => dataset.id === selectedChartId.value),
+  datasets.value.filter((dataset) => selectedChartIds.value.includes(dataset.id)),
+)
+const selectionLabel = computed(() =>
+  visibleDatasets.value.length === 1
+    ? visibleDatasets.value[0]!.title
+    : `${visibleDatasets.value.length} charts selected`,
 )
 const error = ref('')
 const loading = ref(false)
@@ -33,7 +36,8 @@ async function loadData() {
         return data
       }),
     )
-    if (!selectedChartId.value) selectedChartId.value = datasets.value[0]?.id ?? ''
+    if (!selectedChartIds.value.length && datasets.value[0])
+      selectedChartIds.value = [datasets.value[0].id]
   } catch (cause) {
     error.value = cause instanceof Error ? cause.message : 'Unable to load chart data.'
   } finally {
@@ -52,20 +56,28 @@ onMounted(loadData)
   </header>
   <main class="dashboard" aria-label="Main content">
     <div v-if="datasets.length" class="chart-selector">
-      <label for="chart-select">Race chart</label>
-      <select id="chart-select" v-model="selectedChartId">
-        <option v-for="dataset in datasets" :key="dataset.id" :value="dataset.id">
-          {{ dataset.title }}
-        </option>
-        <option value="all">All charts</option>
-      </select>
+      <span id="chart-select-label">Race charts</span>
+      <details class="chart-picker">
+        <summary aria-labelledby="chart-select-label chart-selection">
+          <span id="chart-selection">{{ selectionLabel }}</span>
+        </summary>
+        <div class="chart-options" role="group" aria-labelledby="chart-select-label">
+          <label v-for="dataset in datasets" :key="dataset.id">
+            <input v-model="selectedChartIds" type="checkbox" :value="dataset.id" />
+            {{ dataset.title }}
+          </label>
+        </div>
+      </details>
     </div>
     <p v-if="loading" role="status">Loading chart data…</p>
     <div v-else-if="error" role="alert">
       <p>{{ error }}</p>
       <button type="button" @click="loadData">Retry</button>
     </div>
-    <div v-if="datasets.length" class="chart-grid">
+    <p v-if="datasets.length && !visibleDatasets.length" role="status">
+      Select one or more charts above.
+    </p>
+    <div v-if="visibleDatasets.length" class="chart-grid">
       <BarRaceChart
         v-for="(dataset, index) in visibleDatasets"
         :key="dataset.id"

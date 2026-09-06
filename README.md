@@ -44,8 +44,9 @@ the table heading (for example, Chatbot instead of Country).
 and methodology were not provided. Values are displayed as percentage shares.
 
 To add a chart, create `data/<id>.json` and add its matching ID and title to
-`data/catalog.json`. The dropdown defaults to the first chart; select a different
-chart or All charts to render multiple independently controlled charts in the grid.
+`data/catalog.json`. The dropdown defaults to the first chart; check any combination
+of charts to render them together with independent controls in the grid.
+Data tables are hidden by default; pass `showData` to a chart component to restore them.
 Run `node --experimental-strip-types scripts/seed-blob.mjs --check` to validate
 all files without credentials or uploads. Run
 `node --experimental-strip-types scripts/check-race-data.mjs` for validation tests.

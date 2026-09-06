@@ -16,7 +16,11 @@ use([BarChart, GridComponent, TooltipComponent, CanvasRenderer])
 type ChartOption = ComposeOption<BarSeriesOption | GridComponentOption | TooltipComponentOption>
 
 const container = ref<HTMLDivElement>()
-const { dataset } = defineProps<{ chartNumber: number; dataset: RaceDataset }>()
+const { dataset, showData = false } = defineProps<{
+  chartNumber: number
+  dataset: RaceDataset
+  showData?: boolean
+}>()
 const raceFrames = dataset.frames
 const countries = dataset.entities.map((entity) => ({
   ...entity,
@@ -161,7 +165,7 @@ onBeforeUnmount(() => {
       ref="container"
       class="race-chart"
       role="img"
-      :aria-label="`${dataset.title} for ${frame.period}. Exact values are available below.`"
+      :aria-label="`${dataset.title} for ${frame.period}. ${countries.map((country) => `${country.name}: ${frame.values[country.id]} ${dataset.unit}`).join('; ')}`"
     ></div>
     <p v-if="dataset.isSample" class="sample-note">
       Fictional data for demonstration only; these are not actual country statistics. Each step
@@ -176,7 +180,7 @@ onBeforeUnmount(() => {
         <span v-else>{{ source.name }}</span>
       </li>
     </ul>
-    <details>
+    <details v-if="showData">
       <summary>View data for {{ frame.period }}</summary>
       <table>
         <caption>
