@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "check:api": "node scripts/check-api-build.mjs",
     "blob:seed": "node --experimental-strip-types --env-file=.env.local scripts/seed-blob.mjs",
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",

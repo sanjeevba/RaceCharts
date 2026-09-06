@@ -89,6 +89,11 @@ npm run dev
 npm run build
 ```
 
+Run `npm run check:api` to additionally compile the Vercel API using the root
+`tsconfig.json` and verify emitted JavaScript imports. Vercel reads this root
+configuration independently of the Vue project references. Its ES2022 library
+and import-extension rewrite settings are required by the shared API code.
+
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
