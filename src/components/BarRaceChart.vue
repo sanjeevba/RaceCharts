@@ -21,7 +21,7 @@ const raceFrames = dataset.frames
 const countries = dataset.entities.map((entity) => ({
   ...entity,
   code: entity.id,
-  flag: import.meta.env.BASE_URL + `flags/${entity.flagCode}.png`,
+  flag: entity.flagCode ? import.meta.env.BASE_URL + `flags/${entity.flagCode}.png` : undefined,
 }))
 const numberFormat = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 })
 const frameIndex = ref(0)
@@ -47,18 +47,20 @@ function render(reset = false) {
       axisLabel: {
         formatter: (name: string) => {
           const country = countries.find((entry) => entry.name === name)
-          return country ? `{${country.code}|}  ${name}` : name
+          return country?.flag ? `{${country.code}|}  ${name}` : name
         },
         rich: Object.fromEntries(
-          countries.map((country) => [
-            country.code,
-            {
-              width: 24,
-              height: 16,
-              align: 'center',
-              backgroundColor: { image: country.flag },
-            },
-          ]),
+          countries
+            .filter((country) => country.flag)
+            .map((country) => [
+              country.code,
+              {
+                width: 24,
+                height: 16,
+                align: 'center',
+                backgroundColor: { image: country.flag! },
+              },
+            ]),
         ),
       },
       axisLine: { show: false },
@@ -167,8 +169,11 @@ onBeforeUnmount(() => {
     </p>
     <p class="sample-note">Updated: {{ new Date(dataset.updatedAt).toLocaleDateString() }}</p>
     <ul v-if="dataset.sources.length">
-      <li v-for="source in dataset.sources" :key="source.url">
-        <a :href="source.url" target="_blank" rel="noopener noreferrer">{{ source.name }}</a>
+      <li v-for="source in dataset.sources" :key="source.name">
+        <a v-if="source.url" :href="source.url" target="_blank" rel="noopener noreferrer">{{
+          source.name
+        }}</a>
+        <span v-else>{{ source.name }}</span>
       </li>
     </ul>
     <details>
@@ -184,14 +189,21 @@ onBeforeUnmount(() => {
         </caption>
         <thead>
           <tr>
-            <th scope="col">Country</th>
+            <th scope="col">{{ dataset.entityLabel || 'Country' }}</th>
             <th scope="col">{{ dataset.unit }}</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="country in countries" :key="country.name">
             <th scope="row">
-              <img class="country-flag" :src="country.flag" alt="" width="24" height="16" />
+              <img
+                v-if="country.flag"
+                class="country-flag"
+                :src="country.flag"
+                alt=""
+                width="24"
+                height="16"
+              />
               {{ country.name }}
             </th>
             <td>{{ numberFormat.format(frame.values[country.id]!) }}</td>

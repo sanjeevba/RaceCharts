@@ -26,15 +26,22 @@ dataset. Arbitrary Blob paths cannot be requested through the endpoint.
 Each dataset includes `schemaVersion`, `id`, `title`, `description`, `unit`,
 `isSample`, `updatedAt`, `sources`, `entities`, and `frames`. Frame values are keyed
 by entity ID: `{ "period": "2019", "values": { "ca": 120, "us": 95 } }`.
-Include at least two frames with increasing four-digit years and a non-negative
+Include at least two frames with increasing four-digit years or `YYYY-MM` months
+(use one period format throughout a dataset) and a non-negative
 number for every entity in every frame. This version requires complete frames;
 do not replace missing observations with zero. Entity metadata specifies `id`,
-`name`, `flagCode`, and a six-digit hex `color`. Flag images live in `public/flags/`.
+`name`, optional `flagCode`, and a six-digit hex `color`. Flag images live in `public/flags/`.
 Add a local flag image when introducing a new flag code.
 
 The sales and rainfall files contain fictional sample data.
 For real data, set `isSample` to false and supply sources as objects with `name`
-and an HTTP(S) `url`. Update `updatedAt` when changing the dataset.
+and an optional HTTP(S) `url`. File-only sources can omit the URL.
+Update `updatedAt` when changing the dataset. Optional `entityLabel` customizes
+the table heading (for example, Chatbot instead of Country).
+
+`data/ai-chatbots.json` reproduces all 13 months and 91 values from the supplied
+`ai_chatbot-ww-monthly-202508-202608.csv`. It is attributed to that file; its publisher
+and methodology were not provided. Values are displayed as percentage shares.
 
 To add a chart, create `data/<id>.json` and add its matching ID and title to
 `data/catalog.json`. The dropdown defaults to the first chart; select a different

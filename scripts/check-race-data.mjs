@@ -14,6 +14,19 @@ for (const entry of catalog.charts) {
   assert.equal(data.title, entry.title)
 }
 const sample = JSON.parse(await readFile(new URL('../data/country-sales.json', import.meta.url)))
+const chatbots = validateDataset(
+  JSON.parse(await readFile(new URL('../data/ai-chatbots.json', import.meta.url))),
+)
+assert.equal(chatbots.frames.length, 13)
+assert.equal(chatbots.entities.length, 7)
+assert.equal(chatbots.frames[0].values.chatgpt, 80.92)
+assert.equal(chatbots.frames[12].values['google-gemini'], 10.93)
+assert.equal(chatbots.frames[10].values.other, 0.01)
+for (const period of ['2026-13', '2026-00', '2026', '2025-08']) {
+  const invalid = structuredClone(chatbots)
+  invalid.frames[1].period = period
+  assert.throws(() => validateDataset(invalid))
+}
 assert.equal(validateDataset(sample).frames.length, 8)
 assert.equal(sample.frames[0].values.ca, 120)
 for (const mutate of [

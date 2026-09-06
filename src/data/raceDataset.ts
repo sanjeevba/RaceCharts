@@ -10,8 +10,9 @@ export interface RaceDataset {
   unit: string
   isSample: boolean
   updatedAt: string
-  sources: { name: string; url: string }[]
-  entities: { id: string; name: string; flagCode: string; color: string }[]
+  entityLabel?: string
+  sources: { name: string; url?: string }[]
+  entities: { id: string; name: string; flagCode?: string; color: string }[]
   frames: { period: string; values: Record<string, number> }[]
 }
 export const validChartId = (id: unknown): id is string =>
@@ -47,7 +48,10 @@ export function validateDataset(value: unknown): RaceDataset {
     !Number.isFinite(Date.parse(data.updatedAt)) ||
     !Array.isArray(data.sources) ||
     data.sources.some(
-      (source) => !source || !text(source.name) || !/^https?:\/\//.test(source.url),
+      (source) =>
+        !source ||
+        !text(source.name) ||
+        (source.url !== undefined && !/^https?:\/\//.test(source.url)),
     ) ||
     (!data.isSample && !data.sources.length) ||
     !Array.isArray(data.entities) ||
@@ -57,7 +61,7 @@ export function validateDataset(value: unknown): RaceDataset {
         !entity ||
         !validChartId(entity.id) ||
         !text(entity.name) ||
-        !/^[a-z]{2}$/.test(entity.flagCode) ||
+        (entity.flagCode !== undefined && !/^[a-z]{2}$/.test(entity.flagCode)) ||
         !/^#[0-9a-f]{6}$/i.test(entity.color),
     ) ||
     new Set(data.entities.map((entity) => entity.id)).size !== data.entities.length ||
@@ -67,13 +71,15 @@ export function validateDataset(value: unknown): RaceDataset {
     throw new Error('Invalid chart metadata or entities.')
   }
   const ids = data.entities.map((entity) => entity.id)
-  let previousYear = -Infinity
+  let previousPeriod = ''
+  const periodLength = data.frames[0]?.period?.length
   for (const frame of data.frames) {
     if (
       !frame ||
       typeof frame.period !== 'string' ||
-      !/^\d{4}$/.test(frame.period) ||
-      Number(frame.period) <= previousYear ||
+      !/^\d{4}(-(0[1-9]|1[0-2]))?$/.test(frame.period) ||
+      frame.period.length !== periodLength ||
+      frame.period <= previousPeriod ||
       !frame.values ||
       typeof frame.values !== 'object' ||
       Array.isArray(frame.values) ||
@@ -87,10 +93,10 @@ export function validateDataset(value: unknown): RaceDataset {
       )
     ) {
       throw new Error(
-        'Invalid chart frame: use increasing years and a non-negative value for each entity ID.',
+        'Invalid chart frame: use increasing years or months and a non-negative value for each entity ID.',
       )
     }
-    previousYear = Number(frame.period)
+    previousPeriod = frame.period
   }
   return data
 }

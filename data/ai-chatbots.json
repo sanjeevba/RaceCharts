@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "id": "ai-chatbots",
+  "title": "AI chatbots worldwide",
+  "description": "Monthly worldwide chatbot shares from the supplied CSV, August 2025–August 2026. Values are reproduced as provided; publisher and measurement methodology were not included.",
+  "unit": "%",
+  "entityLabel": "Chatbot",
+  "isSample": false,
+  "updatedAt": "2026-09-06T11:06:08.0727317Z",
+  "sources": [
+    {
+      "name": "gs.statcounter.com/ai-chatbot-market-share"
+    }
+  ],
+  "entities": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "color": "#10a37f"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "color": "#20808d"
+    },
+    {
+      "id": "google-gemini",
+      "name": "Google Gemini",
+      "color": "#4285f4"
+    },
+    {
+      "id": "microsoft-copilot",
+      "name": "Microsoft Copilot",
+      "color": "#a855f7"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "color": "#d97757"
+    },
+    {
+      "id": "deepseek",
+      "name": "Deepseek",
+      "color": "#4d6bfe"
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "color": "#64748b"
+    }
+  ],
+  "frames": [
+    {
+      "period": "2025-08",
+      "values": {
+        "chatgpt": 80.92,
+        "perplexity": 8.12,
+        "google-gemini": 2.19,
+        "microsoft-copilot": 5.17,
+        "claude": 0.89,
+        "deepseek": 2.7,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2025-09",
+      "values": {
+        "chatgpt": 81.12,
+        "perplexity": 10.85,
+        "google-gemini": 2.82,
+        "microsoft-copilot": 4.04,
+        "claude": 0.99,
+        "deepseek": 0.18,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2025-10",
+      "values": {
+        "chatgpt": 81.35,
+        "perplexity": 11.13,
+        "google-gemini": 3.02,
+        "microsoft-copilot": 3.47,
+        "claude": 1.02,
+        "deepseek": 0.01,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2025-11",
+      "values": {
+        "chatgpt": 81.84,
+        "perplexity": 11.06,
+        "google-gemini": 2.97,
+        "microsoft-copilot": 3.06,
+        "claude": 1.06,
+        "deepseek": 0.01,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2025-12",
+      "values": {
+        "chatgpt": 79.74,
+        "perplexity": 10.83,
+        "google-gemini": 4.74,
+        "microsoft-copilot": 3.6,
+        "claude": 1.07,
+        "deepseek": 0.02,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2026-01",
+      "values": {
+        "chatgpt": 80.51,
+        "perplexity": 7.87,
+        "google-gemini": 7.2,
+        "microsoft-copilot": 3.5,
+        "claude": 0.92,
+        "deepseek": 0.01,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2026-02",
+      "values": {
+        "chatgpt": 79.98,
+        "perplexity": 7.88,
+        "google-gemini": 7.5,
+        "microsoft-copilot": 3.26,
+        "claude": 1.37,
+        "deepseek": 0.01,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2026-03",
+      "values": {
+        "chatgpt": 78.16,
+        "perplexity": 7.07,
+        "google-gemini": 8.65,
+        "microsoft-copilot": 3.19,
+        "claude": 2.91,
+        "deepseek": 0.02,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2026-04",
+      "values": {
+        "chatgpt": 76.85,
+        "perplexity": 7.73,
+        "google-gemini": 9.0,
+        "microsoft-copilot": 3.76,
+        "claude": 2.66,
+        "deepseek": 0.01,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2026-05",
+      "values": {
+        "chatgpt": 79.05,
+        "perplexity": 7.67,
+        "google-gemini": 7.04,
+        "microsoft-copilot": 3.24,
+        "claude": 2.99,
+        "deepseek": 0.01,
+        "other": 0.0
+      }
+    },
+    {
+      "period": "2026-06",
+      "values": {
+        "chatgpt": 76.89,
+        "perplexity": 7.87,
+        "google-gemini": 7.96,
+        "microsoft-copilot": 3.48,
+        "claude": 3.74,
+        "deepseek": 0.04,
+        "other": 0.01
+      }
+    },
+    {
+      "period": "2026-07",
+      "values": {
+        "chatgpt": 77.89,
+        "perplexity": 5.86,
+        "google-gemini": 9.93,
+        "microsoft-copilot": 3.07,
+        "claude": 3.2,
+        "deepseek": 0.03,
+        "other": 0.01
+      }
+    },
+    {
+      "period": "2026-08",
+      "values": {
+        "chatgpt": 79.4,
+        "perplexity": 4.34,
+        "google-gemini": 10.93,
+        "microsoft-copilot": 2.77,
+        "claude": 2.53,
+        "deepseek": 0.02,
+        "other": 0.0
+      }
+    }
+  ]
+}

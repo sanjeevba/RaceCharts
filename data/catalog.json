@@ -8,6 +8,10 @@
     {
       "id": "country-rainfall",
       "title": "Annual rainfall by country"
+    },
+    {
+      "id": "ai-chatbots",
+      "title": "AI chatbots worldwide"
     }
   ]
 }
