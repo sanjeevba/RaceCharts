@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "id": "business-leader-net-worth",
+  "title": "Net worth of leading CEOs and business founders",
+  "description": "Estimated net worth in billions of U.S. dollars based primarily on Forbes annual World's Billionaires snapshots. Values generally represent Forbes estimates around March of each year.",
+  "unit": "USD billions",
+  "isSample": false,
+  "updatedAt": "2026-09-07T00:00:00Z",
+  "sources": [
+    {
+      "name": "Forbes World's Billionaires",
+      "url": "https://www.forbes.com/billionaires/"
+    }
+  ],
+  "entities": [
+    {
+      "id": "musk",
+      "name": "Elon Musk",
+      "flagCode": "us",
+      "color": "#e82127"
+    },
+    {
+      "id": "bezos",
+      "name": "Jeff Bezos",
+      "flagCode": "us",
+      "color": "#ff9900"
+    },
+    {
+      "id": "zuckerberg",
+      "name": "Mark Zuckerberg",
+      "flagCode": "us",
+      "color": "#1877f2"
+    },
+    {
+      "id": "arnault",
+      "name": "Bernard Arnault",
+      "flagCode": "fr",
+      "color": "#7b1fa2"
+    },
+    {
+      "id": "ambani",
+      "name": "Mukesh Ambani",
+      "flagCode": "in",
+      "color": "#00897b"
+    },
+    {
+      "id": "dell",
+      "name": "Michael Dell",
+      "flagCode": "us",
+      "color": "#0076ce"
+    }
+  ],
+  "frames": [
+    {
+      "period": "2009",
+      "values": {
+        "musk": 0,
+        "bezos": 6.8,
+        "zuckerberg": 0,
+        "arnault": 16.5,
+        "ambani": 19.5,
+        "dell": 12.3
+      }
+    },
+    {
+      "period": "2010",
+      "values": {
+        "musk": 0,
+        "bezos": 12.3,
+        "zuckerberg": 4,
+        "arnault": 27.5,
+        "ambani": 29,
+        "dell": 13.5
+      }
+    },
+    {
+      "period": "2011",
+      "values": {
+        "musk": 0,
+        "bezos": 18.1,
+        "zuckerberg": 13.5,
+        "arnault": 41,
+        "ambani": 27,
+        "dell": 14.6
+      }
+    },
+    {
+      "period": "2012",
+      "values": {
+        "musk": 2,
+        "bezos": 18.4,
+        "zuckerberg": 17.5,
+        "arnault": 41,
+        "ambani": 22.3,
+        "dell": 15.9
+      }
+    },
+    {
+      "period": "2013",
+      "values": {
+        "musk": 2.7,
+        "bezos": 25.2,
+        "zuckerberg": 13.3,
+        "arnault": 29,
+        "ambani": 21.5,
+        "dell": 15.2
+      }
+    },
+    {
+      "period": "2014",
+      "values": {
+        "musk": 8.4,
+        "bezos": 32,
+        "zuckerberg": 28.5,
+        "arnault": 33.5,
+        "ambani": 18.6,
+        "dell": 17.5
+      }
+    },
+    {
+      "period": "2015",
+      "values": {
+        "musk": 12,
+        "bezos": 34.8,
+        "zuckerberg": 33.4,
+        "arnault": 37.2,
+        "ambani": 21,
+        "dell": 19.2
+      }
+    },
+    {
+      "period": "2016",
+      "values": {
+        "musk": 10.7,
+        "bezos": 45.2,
+        "zuckerberg": 44.6,
+        "arnault": 34,
+        "ambani": 19.3,
+        "dell": 19.8
+      }
+    },
+    {
+      "period": "2017",
+      "values": {
+        "musk": 13.9,
+        "bezos": 72.8,
+        "zuckerberg": 56,
+        "arnault": 41.5,
+        "ambani": 23.2,
+        "dell": 20.4
+      }
+    },
+    {
+      "period": "2018",
+      "values": {
+        "musk": 19.9,
+        "bezos": 112,
+        "zuckerberg": 71,
+        "arnault": 72,
+        "ambani": 40.1,
+        "dell": 22.7
+      }
+    },
+    {
+      "period": "2019",
+      "values": {
+        "musk": 22.3,
+        "bezos": 131,
+        "zuckerberg": 62.3,
+        "arnault": 76,
+        "ambani": 50,
+        "dell": 34.4
+      }
+    },
+    {
+      "period": "2020",
+      "values": {
+        "musk": 24.6,
+        "bezos": 113,
+        "zuckerberg": 54.7,
+        "arnault": 76,
+        "ambani": 36.8,
+        "dell": 22.9
+      }
+    },
+    {
+      "period": "2021",
+      "values": {
+        "musk": 151,
+        "bezos": 177,
+        "zuckerberg": 97,
+        "arnault": 150,
+        "ambani": 84.5,
+        "dell": 45.1
+      }
+    },
+    {
+      "period": "2022",
+      "values": {
+        "musk": 219,
+        "bezos": 171,
+        "zuckerberg": 67.3,
+        "arnault": 158,
+        "ambani": 90.7,
+        "dell": 55.1
+      }
+    },
+    {
+      "period": "2023",
+      "values": {
+        "musk": 180,
+        "bezos": 114,
+        "zuckerberg": 64.4,
+        "arnault": 211,
+        "ambani": 83.4,
+        "dell": 50.1
+      }
+    },
+    {
+      "period": "2024",
+      "values": {
+        "musk": 195,
+        "bezos": 194,
+        "zuckerberg": 177,
+        "arnault": 233,
+        "ambani": 116,
+        "dell": 91
+      }
+    },
+    {
+      "period": "2025",
+      "values": {
+        "musk": 342,
+        "bezos": 215,
+        "zuckerberg": 216,
+        "arnault": 178,
+        "ambani": 92.5,
+        "dell": 97.7
+      }
+    },
+    {
+      "period": "2026",
+      "values": {
+        "musk": 839,
+        "bezos": 224,
+        "zuckerberg": 222,
+        "arnault": 171,
+        "ambani": 99.7,
+        "dell": 141
+      }
+    }
+  ]
+}
