@@ -123,12 +123,18 @@ function play() {
   }, interval)
 }
 
-function restart() {
+function reset() {
   pause()
   frameIndex.value = 0
   render(true)
+}
+
+function restart() {
+  reset()
   play()
 }
+
+defineExpose({ play, pause, reset })
 
 onMounted(() => {
   if (!container.value) return
@@ -152,7 +158,6 @@ onBeforeUnmount(() => {
         <h2 :id="`race-title-${chartNumber}`">{{ dataset.title }}</h2>
         <p>{{ dataset.description }}</p>
       </div>
-      <strong class="race-year">{{ frame.period }}</strong>
     </div>
     <div class="race-controls">
       <button type="button" @click="playing ? pause() : play()">
@@ -161,6 +166,7 @@ onBeforeUnmount(() => {
       <button type="button" class="secondary" @click="restart">Restart</button>
       <span>{{ dataset.unit }}</span>
     </div>
+    <strong class="race-year">{{ frame.period }}</strong>
     <div
       ref="container"
       class="race-chart"
