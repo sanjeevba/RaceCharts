@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "business-leader-net-worth",
-  "title": "Net worth of leading CEOs and business founders",
+  "title": "Net worth of leading CEOs",
   "description": "Estimated net worth in billions of U.S. dollars based primarily on Forbes annual World's Billionaires snapshots. Values generally represent Forbes estimates around March of each year.",
   "unit": "USD billions",
   "isSample": false,
