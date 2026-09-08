@@ -22,6 +22,27 @@ const selectionLabel = computed(() =>
 const error = ref('')
 const loading = ref(false)
 const chartPicker = ref<HTMLDetailsElement>()
+const draggedChartId = ref<string>()
+
+function startDragging(chartId: string) {
+  draggedChartId.value = chartId
+}
+
+function dropChart(targetChartId: string) {
+  const sourceChartId = draggedChartId.value
+  draggedChartId.value = undefined
+  if (!sourceChartId || sourceChartId === targetChartId) return
+
+  const sourceIndex = datasets.value.findIndex((dataset) => dataset.id === sourceChartId)
+  const targetIndex = datasets.value.findIndex((dataset) => dataset.id === targetChartId)
+  if (sourceIndex < 0 || targetIndex < 0) return
+
+  const reordered = [...datasets.value]
+  const [chart] = reordered.splice(sourceIndex, 1)
+  if (!chart) return
+  reordered.splice(targetIndex, 0, chart)
+  datasets.value = reordered
+}
 
 function closePickerOutside(event: PointerEvent) {
   const picker = chartPicker.value
@@ -119,10 +140,29 @@ onBeforeUnmount(() => {
           <span id="chart-selection">{{ selectionLabel }}</span>
         </summary>
         <div class="chart-options" role="group" aria-labelledby="chart-select-label">
-          <label v-for="dataset in datasets" :key="dataset.id">
+          <div
+            v-for="dataset in datasets"
+            :key="dataset.id"
+            class="chart-option"
+            :class="{ 'is-dragging': draggedChartId === dataset.id }"
+            draggable="true"
+            @dragstart="startDragging(dataset.id)"
+            @dragover.prevent
+            @drop="dropChart(dataset.id)"
+            @dragend="draggedChartId = undefined"
+          >
+            <button
+              type="button"
+              class="drag-handle"
+              :aria-label="`Drag to reorder ${dataset.title}`"
+              title="Drag to reorder"
+              @mousedown="startDragging(dataset.id)"
+            >
+              <span aria-hidden="true">::</span>
+            </button>
             <input v-model="selectedChartIds" type="checkbox" :value="dataset.id" />
-            {{ dataset.title }}
-          </label>
+            <span class="chart-option-title">{{ dataset.title }}</span>
+          </div>
           <div
             v-if="visibleDatasets.length > 1"
             class="chart-batch-controls"

@@ -180,7 +180,7 @@ body,
 }
 .chart-picker {
   position: relative;
-  width: 300px;
+  width: min(620px, calc(100vw - 16px));
   max-width: 100%;
 }
 .chart-picker summary {
@@ -193,7 +193,8 @@ body,
   cursor: pointer;
 }
 .chart-picker summary:focus-visible,
-.chart-options input:focus-visible {
+.chart-options input:focus-visible,
+.chart-options button:focus-visible {
   outline: 2px solid #1565c0;
   outline-offset: 3px;
 }
@@ -210,21 +211,57 @@ body,
   border-radius: 6px;
   box-shadow: 0 4px 16px rgb(36 50 71 / 15%);
 }
-.chart-options label {
+.chart-option {
   display: flex;
   align-items: center;
   gap: 10px;
   min-height: 44px;
   padding: 8px;
-  cursor: pointer;
+  border-radius: 4px;
+  cursor: grab;
 }
-.chart-options label:hover {
+.chart-option:hover,
+.chart-option.is-dragging {
   background: #f0f5fc;
 }
-.chart-options input {
+.chart-option:active {
+  cursor: grabbing;
+}
+.chart-option input {
   width: 18px;
   height: 18px;
   accent-color: #1565c0;
+}
+.chart-option-title {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.drag-handle {
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 1px solid #c5cfdd;
+  border-radius: 4px;
+  background: #fff;
+  color: #243247;
+  font-size: 12px;
+  cursor: pointer;
+}
+.drag-handle {
+  min-width: 32px;
+  padding: 4px;
+  color: #596579;
+  cursor: grab;
+  letter-spacing: 2px;
+}
+.drag-handle:active {
+  cursor: grabbing;
+}
+.drag-handle:hover {
+  border-color: #1565c0;
+  color: #1565c0;
 }
 .chart-batch-controls {
   display: flex;
